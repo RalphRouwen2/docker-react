@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json . 
+RUN npm install
+
+# For development you don't need to copy all the files.
+# For production you DO need to copy over all the files. 
+COPY . . 
+
+CMD ["npm", "run", "start"]
